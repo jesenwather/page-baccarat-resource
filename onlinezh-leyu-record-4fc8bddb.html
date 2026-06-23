@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 信息聚合站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f6fa;
+            color: #1e1f2a;
+            line-height: 1.6;
+        }
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0a0e1a 0%, #12172f 100%);
+            color: #e9ecf2;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            border-bottom: 4px solid #3d6bff;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+            color: #ffffff;
+        }
+        .hero .sub {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 680px;
+            margin: 0.5rem auto;
+            font-weight: 300;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 1.2rem;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: #3d6bff;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 1rem;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-top: 1rem;
+            text-transform: uppercase;
+        }
+        /* 浅色正文区 */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 4rem;
+        }
+        .intro {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+            padding: 2.8rem 2.2rem;
+            margin-bottom: 3rem;
+            border: 1px solid #eef0f5;
+        }
+        .intro p {
+            font-size: 1.06rem;
+            margin-bottom: 1.2rem;
+            color: #2c2e3e;
+        }
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+        .em-link {
+            color: #1f3b8c;
+            text-decoration: underline;
+            text-decoration-color: #3d6bff;
+            text-underline-offset: 4px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .em-link:hover {
+            color: #0021a0;
+            text-decoration-color: #0021a0;
+            background: #f0f4ff;
+            padding: 0 2px;
+        }
+        /* 信息卡片式网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+            margin: 2.8rem 0 2rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.6rem;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.04);
+            border: 1px solid #e6eaf2;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px -12px rgba(0, 0, 0, 0.08);
+            border-color: #c8d2ff;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #12172f;
+            letter-spacing: -0.2px;
+            border-left: 4px solid #3d6bff;
+            padding-left: 0.8rem;
+        }
+        .card p, .card li {
+            font-size: 0.98rem;
+            color: #2f3248;
+            margin-bottom: 0.6rem;
+        }
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card li::before {
+            content: "▹";
+            color: #3d6bff;
+            margin-right: 0.6rem;
+            font-weight: 500;
+        }
+        .card .tag {
+            background: #eef2ff;
+            color: #1f3b8c;
+            border-radius: 30px;
+            padding: 0.15rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 0.3rem;
+        }
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.2rem 2.2rem;
+            margin-top: 3rem;
+            border: 1px solid #e6eaf2;
+        }
+        .faq-mini h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #0a0e1a;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.3px;
+        }
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #edf0f6;
+            padding-bottom: 1rem;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .faq-q {
+            font-weight: 600;
+            color: #0f1733;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+        .faq-a {
+            color: #3f4259;
+            font-size: 0.96rem;
+        }
+        .disclaimer-note {
+            margin-top: 2.5rem;
+            font-size: 0.88rem;
+            color: #5d6070;
+            background: #f0f2f8;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px;
+            text-align: center;
+            border: 1px solid #dde2ed;
+        }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2rem; }
+            .hero { padding: 2.8rem 1.2rem; }
+            .intro { padding: 1.8rem 1.2rem; }
+            .card-grid { gap: 1.2rem; }
+            .card { padding: 1.6rem 1.2rem; }
+            .faq-mini { padding: 1.6rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>乐鱼 · 信息索引</h1>
+    <div class="sub">聚合站点 · 内容梳理 · 可信说明</div>
+    <span class="badge">OnlineZh 项目</span>
+</section>
+
+<div class="container">
+
+    <!-- 站点介绍与可信说明段落 -->
+    <div class="intro">
+        <p>
+            <strong>乐鱼</strong> 是线上聚合类项目 <em>onlinezh-leyu</em> 所对应的内容索引节点。该站点以信息整理与主题链接为主要形式，持续收录经过筛选的实用资源及说明文档；其定位并非商业平台，而是一个面向信息查找场景的中立介绍页。
+        </p>
+        <p>
+            本站内容均基于公开资料与已验证来源进行编写，不涉及金融、医疗、投资等专业建议，也不存在诱导注册或付费行为。所有外链及跳转均经过基础可用性核实，但不保证第三方服务的持续状态。如您对具体信息有疑问，建议直接参考对应来源的官方说明。
+        </p>
+        <p>
+            关于 <a href="https://onlinezh-leyu.com" class="em-link">乐鱼</a> 的更详细功能模块与更新记录，您可浏览站点各子页面，或关注项目后续的结构补充。索引内容会按季度进行复核与修订，以维持基础准确度。
+        </p>
+    </div>
+
+    <!-- 用途卡片 · 三列 -->
+    <div class="card-grid">
+        <div class="card">
+            <h3>用途聚焦</h3>
+            <p>作为信息集散页，<strong>乐鱼</strong> 主要承担以下角色：</p>
+            <ul>
+                <li>分类导航：按领域整理工具、文档与参考链接</li>
+                <li>速查手册：常见问题与概念的基础释义</li>
+                <li>更新日志：站点结构变动与内容修订记录</li>
+            </ul>
+            <span class="tag">索引优先</span>
+        </div>
+        <div class="card">
+            <h3>适合人群</h3>
+            <ul>
+                <li>需要快速了解信息结构的新访客</li>
+                <li>对特定主题寻求可信摘要的查阅者</li>
+                <li>希望避开广告堆砌页面的普通用户</li>
+                <li>内容编辑与信息管理的从业者</li>
+            </ul>
+            <span class="tag">信息型受众</span>
+        </div>
+        <div class="card">
+            <h3>可信说明</h3>
+            <p>本站遵循以下编写原则：</p>
+            <ul>
+                <li>不引用未核实数据，不编造来源</li>
+                <li>涉及第三方服务时标注出处及版本</li>
+                <li>不嵌入跟踪脚本，不收集用户行为</li>
+                <li>内容更新保留修订备注与日期</li>
+            </ul>
+            <span class="tag">透明 · 可追溯</span>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要（非重复章节） -->
+    <div class="faq-mini">
+        <h2>常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">‣ 乐鱼 与 onlinezh-leyu 的关系？</div>
+            <div class="faq-a"><strong>乐鱼</strong> 是该项目的品牌化名称，<em>onlinezh-leyu.com</em> 为域名载体。二者指向同一套内容体系，无分离运营实体。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">‣ 信息更新频率如何？</div>
+            <div class="faq-a">核心页面每季度至少复审一次；部分链接或说明可能根据外部变化即时修正。您可以通过页面底部的修订标记了解最近更新。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">‣ 是否接受内容建议或勘误？</div>
+            <div class="faq-a">欢迎通过站点公开渠道提交反馈。但请注意，<strong>乐鱼</strong> 不设置评论区或用户注册，所有内容调整均由编辑独立判断。</div>
+        </div>
+        <div style="margin-top: 1rem; font-size: 0.95rem; background: #f8faff; padding: 0.8rem 1.2rem; border-radius: 30px;">
+            💡 如需确认具体功能细节，请直接浏览 <a href="https://onlinezh-leyu.com" class="em-link">乐鱼</a> 页面目录。
+        </div>
+    </div>
+
+    <!-- 底部提示（不重复，轻量） -->
+    <div class="disclaimer-note">
+        ⚖️ 本页为信息型介绍，无注册/付费入口 · 所有引用均标明来源 · 最近内容复核：2025年3月
+    </div>
+
+</div>
+
+</body>
+</html>
