@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乐鱼 · 快速识别与使用向导</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #faf7f2;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            color: #2d2a24;
+            line-height: 1.7;
+            padding: 2.5rem 1.2rem;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #fffffffb;
+            border-radius: 32px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            padding: 3rem 2.5rem 2.8rem;
+        }
+
+        /* hero 区 */
+        .hero {
+            text-align: center;
+            padding: 1.2rem 0 2.5rem;
+            border-bottom: 1px dashed #e2d9cd;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            color: #3b352e;
+            margin-bottom: 0.7rem;
+        }
+
+        .hero h1 .accent {
+            background: #f0e7da;
+            padding: 0 0.4rem;
+            border-radius: 6px;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            color: #5f5548;
+            max-width: 580px;
+            margin: 0 auto 1.2rem;
+        }
+
+        .hero .quick-tip {
+            display: inline-block;
+            background: #eae1d3;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #3b352e;
+            border-left: 4px solid #b7a48a;
+        }
+
+        /* 通用段落 */
+        section {
+            margin: 2.6rem 0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #3b352e;
+            margin-bottom: 1.2rem;
+            padding-left: 0.6rem;
+            border-left: 4px solid #cbb7a0;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            color: #3f3932;
+        }
+
+        a {
+            color: #7b6047;
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+            text-decoration-thickness: 0.06em;
+        }
+
+        a:hover {
+            color: #4d3c2c;
+            text-decoration-color: #4d3c2c;
+        }
+
+        /* 引用块 / 提示框 */
+        .callout {
+            background: #f8f2ea;
+            border-left: 6px solid #d3c1ab;
+            padding: 1.2rem 1.6rem;
+            border-radius: 14px;
+            margin: 1.8rem 0;
+            font-size: 1rem;
+            color: #2f2a24;
+            box-shadow: inset 0 0 0 1px #f1e8dd;
+        }
+
+        .callout strong {
+            font-weight: 500;
+            color: #4e3f2f;
+        }
+
+        .callout-icon {
+            margin-right: 0.4rem;
+        }
+
+        /* 优势列表 —— 卡片风格 */
+        .advantages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .advantage-card {
+            flex: 1 1 200px;
+            background: #faf6f0;
+            border-radius: 20px;
+            padding: 1.2rem 1.4rem 1.5rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            transition: transform 0.1s ease;
+            border: 1px solid #ece4d8;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #3b352e;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #5a4f42;
+        }
+
+        /* 说明区（场景） */
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.2rem 0;
+        }
+
+        .scenario-item {
+            background: #fffbf6;
+            padding: 0.8rem 1.2rem;
+            border-radius: 30px;
+            border: 1px solid #e6dccc;
+            font-size: 0.95rem;
+            color: #3f3932;
+        }
+
+        .scenario-item::before {
+            content: "·";
+            font-weight: 600;
+            color: #b09a82;
+            margin-right: 0.5rem;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            margin: 2.2rem 0 1rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee6db;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #3b352e;
+            margin-bottom: 0.3rem;
+            font-size: 1.02rem;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #584e41;
+            padding-left: 0.3rem;
+        }
+
+        .faq-more {
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: #5a4e3e;
+            background: #f3ece2;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            display: inline-block;
+        }
+
+        /* 底部链接 */
+        .site-footer {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e6dccc;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6f6354;
+        }
+
+        .site-footer .inline-link {
+            margin: 0 0.2rem;
+        }
+
+        .site-footer small {
+            display: block;
+            margin-top: 0.6rem;
+            color: #96897a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .page {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .advantages {
+                gap: 1rem;
+            }
+
+            .advantage-card {
+                flex: 1 1 100%;
+            }
+
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero 区 -->
+    <header class="hero">
+        <h1><span class="accent">乐鱼</span> · 一眼识别用途</h1>
+        <p class="subhead">如果你正在寻找一个能快速了解「乐鱼」是什么、用来做什么的页面，这里为你准备了清晰的结构和真实的使用场景。</p>
+        <div class="quick-tip">💡 浏览器地址栏输入 <a href="https://onlinesite-leyu.com">乐鱼</a> 即可直达</div>
+    </header>
+
+    <!-- 优势区 —— 为什么选这个视角 -->
+    <section>
+        <h2>为什么需要“快速识别”</h2>
+        <p>每天都会遇到新的网站或服务，但多数页面把信息埋得太深。<strong>乐鱼</strong> 这个名称本身很轻，但你更关心的是：它解决什么问题？我用得上吗？这一页围绕这些核心问题展开，不绕弯子。</p>
+        <div class="advantages">
+            <div class="advantage-card">
+                <h3>🪶 轻量直觉</h3>
+                <p>没有复杂术语，从第一眼就能判断是否与你的需求匹配。</p>
+            </div>
+            <div class="advantage-card">
+                <h3>📋 场景可感</h3>
+                <p>下面列举了几种常见使用情景，你可以对照自己的情况快速对号入座。</p>
+            </div>
+            <div class="advantage-card">
+                <h3>🔗 直达路径</h3>
+                <p>页内所有指向 <a href="https://onlinesite-leyu.com">乐鱼</a> 的链接均真实有效，无中间跳转。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 —— 用户想快速识别用途 -->
+    <section>
+        <h2>说明 · 乐鱼适合哪些场景</h2>
+        <p>根据多数使用者的反馈，以下场景与「乐鱼」的定位高度吻合。你可以看看是否在其中找到自己的影子：</p>
+        <div class="scenario-grid">
+            <span class="scenario-item">想浏览轻量化内容，不希望被过度推荐干扰</span>
+            <span class="scenario-item">需要一个界面干净、反馈直接的工具型页面</span>
+            <span class="scenario-item">想保存某个在线站点，用于日常快速查阅</span>
+            <span class="scenario-item">偏好清晰的功能分区，不想要浮夸的营销话术</span>
+        </div>
+        <div class="callout">
+            <strong>📌 一点提示</strong> —— 如果你不确定 <a href="https://onlinesite-leyu.com">乐鱼</a> 是否适合你，可以先花半分钟浏览上面的场景卡片。多数人在这里找到了“对，我就是这种情况”的感觉。
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-mini">
+        <h2>FAQ 摘要 · 三个常见疑问</h2>
+        <div class="faq-item">
+            <div class="faq-q">❓ “乐鱼” 是一个产品还是平台？</div>
+            <div class="faq-a">它更像是一个功能明确的在线站点，名称本身不代表特定分类，你可以通过实际体验来定义它。直接访问 <a href="https://onlinesite-leyu.com">乐鱼</a> 即可。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 需要注册或下载吗？</div>
+            <div class="faq-a">不需要额外注册或安装，打开页面即可使用主要功能。所有操作都在浏览器内完成。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">❓ 与其他类似站点有什么不同？</div>
+            <div class="faq-a">乐鱼 更注重信息呈现的直接性，减少中间步骤。你可以在几秒内判断它是否对你有用。</div>
+        </div>
+        <div class="faq-more">↻ 更多问题可前往 <a href="https://onlinesite-leyu.com">乐鱼</a> 页面底部查阅</div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="site-footer">
+        <p>本页帮助你快速识别 <a href="https://onlinesite-leyu.com" class="inline-link">乐鱼</a> 的核心用途。所有引用内容基于真实使用情境整理。</p>
+        <small>© 介绍页 · 内容仅作说明用途</small>
+    </footer>
+</div>
+</body>
+</html>
