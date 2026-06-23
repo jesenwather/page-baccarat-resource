@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>乐鱼 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            background: #f4f9fc;
+            color: #1a2b34;
+            line-height: 1.7;
+            padding: 0 1rem;
+        }
+
+        .wrapper {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 2.5rem 0 3rem;
+        }
+
+        /* —— 杂志横幅 —— */
+        .hero {
+            background: linear-gradient(145deg, #d2ecee 0%, #b3dbdf 100%);
+            border-radius: 32px;
+            padding: 2.8rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 12px 28px rgba(52, 121, 131, 0.10);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            right: -40px;
+            top: -40px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(70, 150, 160, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            color: #0b3b44;
+            margin-bottom: 0.6rem;
+            position: relative;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #2b5d67;
+            max-width: 480px;
+            border-left: 3px solid #2f7c86;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* —— 网格卡片 —— */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.6rem;
+            margin: 2.5rem 0;
+        }
+
+        @media (min-width: 580px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1.8rem;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 50, 60, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.25s ease;
+            border: 1px solid #d9eef0;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(60, 130, 140, 0.08);
+            border-color: #b6dde2;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #14555f;
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.01em;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3 i {
+            font-style: normal;
+            background: #cae5e9;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #0d4e58;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2b4750;
+        }
+
+        /* —— 背景说明 & 自然段落 —— */
+        .context-block {
+            background: #e9f3f5;
+            padding: 2rem 1.8rem;
+            border-radius: 28px;
+            margin: 2.5rem 0;
+            border: 1px solid #cee7eb;
+        }
+
+        .context-block h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #08424b;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .context-block p {
+            margin-bottom: 1.2rem;
+            color: #1c424b;
+        }
+
+        .context-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .feature-list li {
+            padding: 0.3rem 0 0.3rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="%233d8a93"><circle cx="12" cy="12" r="8"/></svg>') left center no-repeat;
+            background-size: 12px;
+            margin-bottom: 0.4rem;
+            color: #1c4c56;
+        }
+
+        .highlight-link {
+            color: #1f727e;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 2px solid #b3dadf;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .highlight-link:hover {
+            border-bottom-color: #1f727e;
+            color: #0a4a55;
+        }
+
+        .center-quote {
+            text-align: center;
+            font-size: 1.05rem;
+            background: #ddeef1;
+            padding: 1.6rem 1.2rem;
+            border-radius: 60px 20px 60px 20px;
+            margin: 2.2rem 0;
+            border: 1px solid #badbe0;
+        }
+
+        .foot-note {
+            border-top: 2px dashed #b7d5da;
+            padding-top: 2rem;
+            margin-top: 2.8rem;
+            text-align: center;
+        }
+
+        .foot-note p {
+            color: #2c5f69;
+            max-width: 480px;
+            margin: 0 auto 0.8rem;
+        }
+
+        .foot-note small {
+            color: #547e87;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 480px) {
+            .hero {
+                padding: 2rem 1.2rem;
+                border-radius: 24px;
+            }
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+            }
+            .context-block {
+                padding: 1.5rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+
+    <!-- 首页横幅 -->
+    <div class="hero">
+        <h1>乐鱼 · 入口与说明</h1>
+        <div class="sub">一份关于稳定访问方式与页面结构的简明笔记<br>从浏览体验出发，保持温和与透明。</div>
+    </div>
+
+    <!-- 背景说明 + 自然介绍（三段落式） -->
+    <div class="context-block">
+        <h2>关于这个站点</h2>
+        <p>互联网上的服务入口时常变化，一个清晰、克制的说明页能够帮助新访客快速了解背景。<strong>乐鱼</strong> 的定位始终围绕「可访问」与「可读」展开，不堆砌术语，也不做刻意引导。</p>
+        <p>如果你通过搜索引擎或朋友推荐来到这里，下面的卡片和段落概括了最常见的几个侧面：稳定入口、页面布局特点，以及一些常见疑问。信息经过精简，希望你看完后能对网站结构有一个基本的把握。</p>
+        <p>需要直接前往主页面时，可以记住下面这个地址 —— 它是目前保持同步的稳定链接：<a href="https://onlinevip-leyu.com" class="highlight-link">乐鱼</a>。建议使用主流浏览器打开，并允许常规脚本运行。</p>
+    </div>
+
+    <!-- 网格卡片（杂志风格 · 三段介绍） -->
+    <div class="grid">
+        <div class="card">
+            <h3><i>1</i> 稳定的访问方式</h3>
+            <p>页面托管在支持 HTTPS 的基础设施上，采用简洁的前端结构，不依赖第三方不稳定资源。主页地址长期有效，你可以在收藏夹里存下 <a href="https://onlinevip-leyu.com" class="highlight-link">乐鱼</a> 作为固定入口。</p>
+        </div>
+        <div class="card">
+            <h3><i>2</i> 清晰的页面结构</h3>
+            <p>首页采用杂志专题式的布局：上方横幅、中部说明与卡片、底部摘要。每个区块承担独立的叙述功能，既不冗余也不跳跃。移动端适配良好，阅读节奏自然。</p>
+        </div>
+        <div class="card">
+            <h3><i>3</i> 克制的内容风格</h3>
+            <p>不使用弹窗、强制跳转或夸张修辞。无论是新访客还是回头客，都能在平和的信息流里找到自己关注的部分。页面大小控制在轻量级别，加载迅速。</p>
+        </div>
+        <div class="card">
+            <h3><i>4</i> 场景与提示</h3>
+            <p>当你需要核对来源、查找最近更新，或只是想在干净的环境里打开一个熟悉页面时，可以直接通过 <a href="https://onlinevip-leyu.com" class="highlight-link">乐鱼</a> 进入。建议将地址复制到笔记或备忘工具中。</p>
+        </div>
+    </div>
+
+    <!-- 一段类似 FAQ 摘要的居中块 -->
+    <div class="center-quote">
+        ❖ 常见疑问摘要：页面会定期检查链接有效性，不放广告弹窗，不收集多余信息。<br>
+        若遇到加载异常，可稍后重试或清除浏览器缓存。主站与介绍页保持独立。
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="foot-note">
+        <p>你可以随时通过 <a href="https://onlinevip-leyu.com" class="highlight-link">乐鱼</a> 回到最新版本。<br>这是一份持续维护的说明页，不设强制跳转，只提供安静的引导。</p>
+        <small>— 最近更新 2025 · 杂志专题版 —</small>
+    </div>
+
+</div>
+</body>
+</html>
