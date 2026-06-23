@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 · 站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f2f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2.5rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      max-width: 960px;
+      width: 100%;
+    }
+
+    /* 主卡片容器 */
+    .card-group {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2rem 2.25rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e6eaef;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05), 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 2.8rem 2.25rem 2.2rem;
+      background: linear-gradient(145deg, #fafbfc 0%, #ffffff 100%);
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #182230;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero .tagline {
+      font-size: 1.05rem;
+      color: #4a5b6e;
+      max-width: 580px;
+      margin: 0 auto;
+      border-top: 1px solid #dce2ea;
+      padding-top: 1rem;
+      line-height: 1.7;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #1f2b3a;
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-title::before {
+      content: "▹";
+      color: #3b6b9c;
+      font-weight: 400;
+      font-size: 1.1rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.6rem;
+      margin-top: 0.3rem;
+    }
+
+    .feature-item {
+      background: #f7f9fc;
+      border-radius: 18px;
+      padding: 1.2rem 1.4rem;
+      border: 1px solid #e3e9f1;
+    }
+
+    .feature-item h3 {
+      font-size: 1.05rem;
+      font-weight: 520;
+      margin-bottom: 0.35rem;
+      color: #1f2f40;
+    }
+
+    .feature-item p {
+      font-size: 0.94rem;
+      color: #2f4055;
+      margin-bottom: 0;
+    }
+
+    .usage-step {
+      background: #f7f9fc;
+      border-radius: 18px;
+      padding: 1.3rem 1.5rem;
+      border: 1px solid #e3e9f1;
+      margin-bottom: 0.9rem;
+    }
+
+    .usage-step:last-child {
+      margin-bottom: 0;
+    }
+
+    .usage-step strong {
+      display: inline-block;
+      min-width: 1.8rem;
+      font-weight: 550;
+      color: #2f5579;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #e6ecf3;
+      padding: 0.85rem 0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 500;
+      color: #1b293b;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-a {
+      color: #3d5067;
+      font-size: 0.95rem;
+    }
+
+    .note-box {
+      background: #f2f6fb;
+      border-radius: 18px;
+      padding: 1.2rem 1.6rem;
+      border-left: 4px solid #4873a8;
+      color: #1a2c3e;
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+    }
+
+    .note-box a {
+      color: #2b5783;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dotted #8baacf;
+    }
+
+    .note-box a:hover {
+      border-bottom: 2px solid #2b5783;
+    }
+
+    .footer-note {
+      margin-top: 2.2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5b6f84;
+      border-top: 1px solid #d5dde8;
+      padding-top: 1.8rem;
+      width: 100%;
+    }
+
+    .footer-note small {
+      display: block;
+      margin-top: 0.6rem;
+      color: #7c8fa3;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .card {
+        padding: 1.5rem 1.2rem;
+        border-radius: 20px;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 1.15rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card-group">
+
+      <!-- hero 摘要区 -->
+      <div class="card hero">
+        <h1>乐鱼 · 信息说明</h1>
+        <div class="tagline">
+          一份围绕站点背景、功能亮点与使用视角的客观介绍。不夸大，不诱导，仅提供真实可考的产品轮廓。
+        </div>
+      </div>
+
+      <!-- 介绍与可信说明（摘要） -->
+      <div class="card">
+        <div class="section-title">站点概览</div>
+        <p style="margin-bottom: 1rem;">
+          <a href="https://onlinemobile-leyu.com" style="color:#2b5783;text-decoration:none;font-weight:500;border-bottom:1px solid #9bb5d3;">乐鱼</a> 
+          是一个面向移动端与桌面端用户的服务型站点，主要提供数字娱乐与互动内容的分发和基础支持。平台设计强调轻量访问与低门槛使用，在界面布局与响应速度方面持续优化。无论是初步了解还是日常使用，站点均保持统一的信息架构，让用户能较快定位到所需功能。
+        </p>
+        <p>
+          从技术层面看，站点采用适配多终端的结构，并基于通用安全协议进行数据传输。页面加载逻辑经过精简，减少了非必要的第三方请求，这在一定程度上提升了浏览的流畅性与隐私保护水平。整体而言，<strong>乐鱼</strong> 适合对数字互动内容有稳定需求的用户，并且站点本身保持透明、克制的运营姿态。
+        </p>
+      </div>
+
+      <!-- 亮点（特点卡片） -->
+      <div class="card">
+        <div class="section-title">功能亮点</div>
+        <div class="grid-2">
+          <div class="feature-item">
+            <h3>响应式布局</h3>
+            <p>同一套界面在手机、平板与桌面浏览器上均可获得一致的浏览体验，无需额外缩放或横竖屏切换。</p>
+          </div>
+          <div class="feature-item">
+            <h3>内容聚合分类</h3>
+            <p>通过清晰的标签与分区陈列，用户可依据兴趣快速筛选，减少信息过载带来的决策疲劳。</p>
+          </div>
+          <div class="feature-item">
+            <h3>轻量化资产</h3>
+            <p>页面内图片与脚本经过体积控制，在普通网络环境下也能在数秒内完成首屏加载。</p>
+          </div>
+          <div class="feature-item">
+            <h3>常规更新机制</h3>
+            <p>内容与功能模块按照周期进行迭代，保持可用性与适度新鲜感，同时避免频繁变动造成困惑。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 使用建议（场景） -->
+      <div class="card">
+        <div class="section-title">使用场景与建议</div>
+        <div class="usage-step">
+          <strong>①</strong> 初次访问时，可先浏览首页导航与分类区块，了解整体信息分布，不必急于深入。
+        </div>
+        <div class="usage-step">
+          <strong>②</strong> 若希望获取更个性化的内容推荐，可尝试使用站内筛选或标签功能，根据兴趣缩小范围。
+        </div>
+        <div class="usage-step">
+          <strong>③</strong> 建议在网络环境稳定的情况下使用，以确保页面素材与交互功能完整加载。
+        </div>
+        <div class="usage-step">
+          <strong>④</strong> 对于常用功能，可留意站点更新日志或公告区域，了解近期变动与优化方向。
+        </div>
+      </div>
+
+      <!-- FAQ 摘要 + 可信说明 -->
+      <div class="card">
+        <div class="section-title">常见问题摘要</div>
+        <div class="faq-item">
+          <div class="faq-q">乐鱼需要注册才能浏览吗？</div>
+          <div class="faq-a">部分基础内容可直接查看；部分特定板块可能需快速注册，具体以页面提示为准。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">移动端与桌面端体验有区别吗？</div>
+          <div class="faq-a">核心功能一致，但移动端布局更侧重单手操作与纵向滚动，桌面端则提供更宽的信息展示区。</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">站点的数据安全如何保障？</div>
+          <div class="faq-a">采用常规 HTTPS 加密传输，且未设置不必要的追踪脚本。用户个人信息处理遵循最小必要原则。</div>
+        </div>
+        <div style="margin-top:1.2rem; border-top:1px dashed #d8e0ea; padding-top:1.2rem; color:#2b3f57; font-size:0.95rem;">
+          <span style="background:#eaf0f8; padding:0.2rem 0.6rem; border-radius:12px; font-size:0.85rem;">💡 可信说明</span> 
+          本页所有描述均基于 <a href="https://onlinemobile-leyu.com" style="color:#2b5783;text-decoration:none;font-weight:500;border-bottom:1px dotted #8baacf;">乐鱼</a> 站点公开信息与常规使用体验整理，不含有任何夸大或诱导性表达。具体功能以实际页面为准。
+        </div>
+      </div>
+
+      <!-- 提示与克制访问说明 -->
+      <div class="card">
+        <div class="section-title">访问提示</div>
+        <div class="note-box">
+          <p>在访问 <a href="https://onlinemobile-leyu.com">乐鱼</a> 时，建议保持浏览器与操作系统为较新版本，以获得最佳兼容性与安全防护。任何第三方链接或外部资源均以页面实际标注为准，请根据自身判断合理使用。</p>
+          <p style="margin-top:0.8rem;">本站不收集、不存储任何个人敏感信息，不设置自动跳转或隐藏式弹窗。若遇到页面异常，可尝试清除缓存或更换网络环境后重试。</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-note">
+      <span>基于客观信息的站点介绍 · 版本 2025.03</span>
+      <small>内容仅作参考，具体以实际页面为准。无诱导、无承诺、无夸大。</small>
+    </div>
+  </div>
+</body>
+</html>
